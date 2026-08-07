@@ -39,7 +39,7 @@ export function renderMcpServerForm(props: {
           class="settings-input"
           type="text"
           required
-          placeholder="context7"
+          placeholder=${t("mcpServers.namePlaceholder")}
           autocomplete="off"
           ?autofocus=${props.autofocus ?? false}
           title=${props.blockedReason ?? ""}
@@ -66,7 +66,7 @@ export function renderMcpServerForm(props: {
           class="settings-input"
           type="text"
           required
-          placeholder="https://mcp.example.com/mcp  ·  npx some-mcp-server"
+          placeholder=${t("mcpServers.targetPlaceholder")}
           autocomplete="off"
           title=${props.blockedReason ?? ""}
           ?disabled=${disabled}

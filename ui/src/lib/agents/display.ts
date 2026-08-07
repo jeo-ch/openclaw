@@ -52,8 +52,9 @@ export type AgentToolSection = {
   tools: AgentToolEntry[];
 };
 
-type FallbackToolEntry = Omit<AgentToolEntry, "description"> & {
+type FallbackToolEntry = Omit<AgentToolEntry, "description" | "label"> & {
   descriptionKey: string;
+  labelKey: string;
 };
 
 type FallbackToolSection = Omit<AgentToolSection, "label" | "tools"> & {
@@ -66,12 +67,24 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     id: "fs",
     labelKey: "agents.toolCatalog.groups.files",
     tools: [
-      { id: "read", label: "read", descriptionKey: "agents.toolCatalog.descriptions.read" },
-      { id: "write", label: "write", descriptionKey: "agents.toolCatalog.descriptions.write" },
-      { id: "edit", label: "edit", descriptionKey: "agents.toolCatalog.descriptions.edit" },
+      {
+        id: "read",
+        labelKey: "agents.toolCatalog.labels.read",
+        descriptionKey: "agents.toolCatalog.descriptions.read",
+      },
+      {
+        id: "write",
+        labelKey: "agents.toolCatalog.labels.write",
+        descriptionKey: "agents.toolCatalog.descriptions.write",
+      },
+      {
+        id: "edit",
+        labelKey: "agents.toolCatalog.labels.edit",
+        descriptionKey: "agents.toolCatalog.descriptions.edit",
+      },
       {
         id: "apply_patch",
-        label: "apply_patch",
+        labelKey: "agents.toolCatalog.labels.applyPatch",
         descriptionKey: "agents.toolCatalog.descriptions.applyPatch",
       },
     ],
@@ -80,10 +93,14 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     id: "runtime",
     labelKey: "agents.toolCatalog.groups.runtime",
     tools: [
-      { id: "exec", label: "exec", descriptionKey: "agents.toolCatalog.descriptions.exec" },
+      {
+        id: "exec",
+        labelKey: "agents.toolCatalog.labels.exec",
+        descriptionKey: "agents.toolCatalog.descriptions.exec",
+      },
       {
         id: "process",
-        label: "process",
+        labelKey: "agents.toolCatalog.labels.process",
         descriptionKey: "agents.toolCatalog.descriptions.process",
       },
     ],
@@ -94,12 +111,12 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "web_search",
-        label: "web_search",
+        labelKey: "agents.toolCatalog.labels.webSearch",
         descriptionKey: "agents.toolCatalog.descriptions.webSearch",
       },
       {
         id: "web_fetch",
-        label: "web_fetch",
+        labelKey: "agents.toolCatalog.labels.webFetch",
         descriptionKey: "agents.toolCatalog.descriptions.webFetch",
       },
     ],
@@ -110,12 +127,12 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "memory_search",
-        label: "memory_search",
+        labelKey: "agents.toolCatalog.labels.memorySearch",
         descriptionKey: "agents.toolCatalog.descriptions.memorySearch",
       },
       {
         id: "memory_get",
-        label: "memory_get",
+        labelKey: "agents.toolCatalog.labels.memoryGet",
         descriptionKey: "agents.toolCatalog.descriptions.memoryGet",
       },
     ],
@@ -126,27 +143,27 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "sessions_list",
-        label: "sessions_list",
+        labelKey: "agents.toolCatalog.labels.sessionsList",
         descriptionKey: "agents.toolCatalog.descriptions.sessionsList",
       },
       {
         id: "sessions_history",
-        label: "sessions_history",
+        labelKey: "agents.toolCatalog.labels.sessionsHistory",
         descriptionKey: "agents.toolCatalog.descriptions.sessionsHistory",
       },
       {
         id: "sessions_send",
-        label: "sessions_send",
+        labelKey: "agents.toolCatalog.labels.sessionsSend",
         descriptionKey: "agents.toolCatalog.descriptions.sessionsSend",
       },
       {
         id: "sessions_spawn",
-        label: "sessions_spawn",
+        labelKey: "agents.toolCatalog.labels.sessionsSpawn",
         descriptionKey: "agents.toolCatalog.descriptions.sessionsSpawn",
       },
       {
         id: "session_status",
-        label: "session_status",
+        labelKey: "agents.toolCatalog.labels.sessionStatus",
         descriptionKey: "agents.toolCatalog.descriptions.sessionStatus",
       },
     ],
@@ -157,12 +174,12 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "browser",
-        label: "browser",
+        labelKey: "agents.toolCatalog.labels.browser",
         descriptionKey: "agents.toolCatalog.descriptions.browser",
       },
       {
         id: "canvas",
-        label: "canvas",
+        labelKey: "agents.toolCatalog.labels.canvas",
         descriptionKey: "agents.toolCatalog.descriptions.canvas",
       },
     ],
@@ -173,7 +190,7 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "message",
-        label: "message",
+        labelKey: "agents.toolCatalog.labels.message",
         descriptionKey: "agents.toolCatalog.descriptions.message",
       },
     ],
@@ -182,10 +199,14 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     id: "automation",
     labelKey: "agents.toolCatalog.groups.automation",
     tools: [
-      { id: "cron", label: "cron", descriptionKey: "agents.toolCatalog.descriptions.cron" },
+      {
+        id: "cron",
+        labelKey: "agents.toolCatalog.labels.cron",
+        descriptionKey: "agents.toolCatalog.descriptions.cron",
+      },
       {
         id: "gateway",
-        label: "gateway",
+        labelKey: "agents.toolCatalog.labels.gateway",
         descriptionKey: "agents.toolCatalog.descriptions.gateway",
       },
     ],
@@ -194,7 +215,11 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     id: "nodes",
     labelKey: "agents.toolCatalog.groups.nodes",
     tools: [
-      { id: "nodes", label: "nodes", descriptionKey: "agents.toolCatalog.descriptions.nodes" },
+      {
+        id: "nodes",
+        labelKey: "agents.toolCatalog.labels.nodes",
+        descriptionKey: "agents.toolCatalog.descriptions.nodes",
+      },
     ],
   },
   {
@@ -203,7 +228,7 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     tools: [
       {
         id: "agents_list",
-        label: "agents_list",
+        labelKey: "agents.toolCatalog.labels.agentsList",
         descriptionKey: "agents.toolCatalog.descriptions.agentsList",
       },
     ],
@@ -212,7 +237,11 @@ const FALLBACK_TOOL_SECTIONS: FallbackToolSection[] = [
     id: "media",
     labelKey: "agents.toolCatalog.groups.media",
     tools: [
-      { id: "image", label: "image", descriptionKey: "agents.toolCatalog.descriptions.image" },
+      {
+        id: "image",
+        labelKey: "agents.toolCatalog.labels.image",
+        descriptionKey: "agents.toolCatalog.descriptions.image",
+      },
     ],
   },
 ];
@@ -265,7 +294,7 @@ export function resolveToolSections(
     label: t(section.labelKey),
     tools: section.tools.map((tool) => ({
       id: tool.id,
-      label: tool.label,
+      label: t(tool.labelKey),
       description: t(tool.descriptionKey),
     })),
   }));

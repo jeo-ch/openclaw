@@ -284,8 +284,10 @@ export function renderSkillMenu(
             )}
           </div>`}
       <div class="slash-menu-footer">
-        <kbd>↑↓</kbd> ${t("chat.commands.navigate")} <kbd>Tab</kbd> ${t("chat.commands.fill")}
-        <kbd>Enter</kbd> ${t("chat.commands.select")} <kbd>Esc</kbd> ${t("chat.commands.close")}
+        <kbd>${t("common.key_arrows")}</kbd> ${t("chat.commands.navigate")}
+        <kbd>${t("common.key_tab")}</kbd> ${t("chat.commands.fill")}
+        <kbd>${t("common.key_enter")}</kbd> ${t("chat.commands.select")}
+        <kbd>${t("common.key_esc")}</kbd> ${t("chat.commands.close")}
       </div>
     </div>
   `;

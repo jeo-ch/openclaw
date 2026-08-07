@@ -91,7 +91,7 @@ function getPaletteBaseItems(): PaletteItem[] {
     },
     {
       id: "slash:verbose",
-      label: "/verbose",
+      label: t("palette.items.verbose"),
       icon: "terminal",
       category: "search",
       action: "/verbose full",
@@ -320,9 +320,9 @@ function renderCommandPalette(props: CommandPaletteProps) {
               )}
         </div>
         <div class="cmd-palette__footer">
-          <span><kbd>↑↓</kbd> ${t("palette.footer.navigate")}</span>
+          <span><kbd>${t("common.key_arrows")}</kbd> ${t("palette.footer.navigate")}</span>
           <span><kbd>↵</kbd> ${t("palette.footer.select")}</span>
-          <span><kbd>esc</kbd> ${t("palette.footer.close")}</span>
+          <span><kbd>${t("common.key_esc")}</kbd> ${t("palette.footer.close")}</span>
         </div>
       </div>
     </openclaw-modal-dialog>

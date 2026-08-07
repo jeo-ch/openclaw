@@ -245,7 +245,7 @@ export function renderSettingsSidebar(props: SettingsSidebarProps) {
         <button type="button" class="settings-sidebar__back" @click=${() => props.onExit()}>
           <span class="settings-sidebar__back-icon" aria-hidden="true">${icons.arrowLeft}</span>
           ${t("nav.exitSettings")}
-          <kbd class="settings-sidebar__esc" aria-hidden="true">esc</kbd>
+          <kbd class="settings-sidebar__esc" aria-hidden="true">${t("common.key_esc")}</kbd>
         </button>
         <h1 class="settings-sidebar__title">${t("nav.settings")}</h1>
       </header>

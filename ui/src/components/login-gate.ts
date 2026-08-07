@@ -328,8 +328,8 @@ function renderLoginGate(props: LoginGateProps) {
     <div class="login-gate">
       <div class="login-gate__card">
         <div class="login-gate__header">
-          <img class="login-gate__logo" src=${faviconSrc} alt="OpenClaw" />
-          <div class="login-gate__title">OpenClaw</div>
+          <img class="login-gate__logo" src=${faviconSrc} alt=${t("login.logoAlt")} />
+          <div class="login-gate__title">${t("login.title")}</div>
           <div class="login-gate__sub">${t("login.subtitle")}</div>
         </div>
         <div class="login-gate__form">
@@ -351,7 +351,7 @@ function renderLoginGate(props: LoginGateProps) {
                   props.onConnect();
                 }
               }}
-              placeholder="ws://127.0.0.1:18789"
+              placeholder=${t("login.wsUrlPlaceholder")}
             />
           </label>
           <label class="field">
@@ -366,7 +366,7 @@ function renderLoginGate(props: LoginGateProps) {
                 @input=${(e: Event) => {
                   props.onTokenChange((e.target as HTMLInputElement).value);
                 }}
-                placeholder="OPENCLAW_GATEWAY_TOKEN (${t("login.passwordPlaceholder")})"
+                placeholder=${t("login.tokenPlaceholder")}
                 @keydown=${(e: KeyboardEvent) => {
                   if (e.key === "Enter") {
                     props.onConnect();

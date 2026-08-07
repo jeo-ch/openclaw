@@ -1553,7 +1553,7 @@ function renderAdvanced(
                 id="cron-session-key"
                 class="settings-input"
                 .value=${props.form.sessionKey}
-                placeholder="agent:main:main"
+                placeholder=${t("cron.form.sessionKeyPlaceholder")}
                 @input=${(e: Event) =>
                   props.onFormChange({ sessionKey: (e.target as HTMLInputElement).value })}
               />
@@ -1605,7 +1605,7 @@ function renderAdvanced(
                       .value=${props.form.deliveryAccountId}
                       list="cron-delivery-account-suggestions"
                       ?disabled=${ctx.selectedDeliveryMode !== "announce"}
-                      placeholder="default"
+                      placeholder=${t("cron.form.accountIdPlaceholder")}
                       @input=${(e: Event) =>
                         props.onFormChange({
                           deliveryAccountId: (e.target as HTMLInputElement).value,

@@ -1,5 +1,6 @@
 // Control UI view renders usage query screen content.
 import { timestampMsToIsoString } from "@openclaw/normalization-core/number-coercion";
+import { t } from "../../i18n/index.ts";
 import { normalizeLowercaseStringOrEmpty, uniqueStrings } from "../../lib/string-coerce.ts";
 import { extractQueryTerms } from "./helpers.ts";
 import type { CostDailyEntry, UsageAggregates, UsageSessionEntry } from "./types.ts";
@@ -171,15 +172,15 @@ const buildQuerySuggestions = (
 
   if (!key) {
     return [
-      { label: "agent:", value: "agent:" },
-      { label: "channel:", value: "channel:" },
-      { label: "provider:", value: "provider:" },
-      { label: "model:", value: "model:" },
-      { label: "tool:", value: "tool:" },
-      { label: "has:errors", value: "has:errors" },
-      { label: "has:tools", value: "has:tools" },
-      { label: "minTokens:", value: "minTokens:" },
-      { label: "maxCost:", value: "maxCost:" },
+      { label: t("usage.query.filters.agent"), value: "agent:" },
+      { label: t("usage.query.filters.channel"), value: "channel:" },
+      { label: t("usage.query.filters.provider"), value: "provider:" },
+      { label: t("usage.query.filters.model"), value: "model:" },
+      { label: t("usage.query.filters.tool"), value: "tool:" },
+      { label: t("usage.query.filters.hasErrors"), value: "has:errors" },
+      { label: t("usage.query.filters.hasTools"), value: "has:tools" },
+      { label: t("usage.query.filters.minTokens"), value: "minTokens:" },
+      { label: t("usage.query.filters.maxCost"), value: "maxCost:" },
     ];
   }
 

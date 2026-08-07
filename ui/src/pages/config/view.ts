@@ -49,7 +49,7 @@ function renderAppearance(props: ConfigProps) {
         data-settings-chat-message-width
         type="text"
         spellcheck="false"
-        placeholder="48rem"
+        placeholder=${t("configView.chatPrefs.messageWidthPlaceholder")}
         .value=${props.chatMessageMaxWidth ?? ""}
         @change=${(event: Event) => {
           const input = event.currentTarget as HTMLInputElement;
@@ -71,7 +71,7 @@ function renderAppearance(props: ConfigProps) {
         data-custom-theme-import-input
         type="text"
         spellcheck="false"
-        placeholder="https://tweakcn.com/editor/theme?theme=... or amethyst-haze"
+        placeholder=${t("configView.themeLinkPlaceholder")}
         .value=${props.customThemeImportUrl}
         @input=${(event: Event) =>
           props.onCustomThemeImportUrlChange((event.currentTarget as HTMLInputElement).value)}

@@ -202,12 +202,16 @@ export function renderMessageMeta(timestamp: number, meta: GroupMeta | null) {
   // Cache: R/W
   if (meta.cacheRead) {
     parts.push(
-      html`<span class="msg-meta__cache">R${formatCompactTokenCount(meta.cacheRead)}</span>`,
+      html`<span class="msg-meta__cache"
+        >${t("chat.messages.cacheRead")}${formatCompactTokenCount(meta.cacheRead)}</span
+      >`,
     );
   }
   if (meta.cacheWrite) {
     parts.push(
-      html`<span class="msg-meta__cache">W${formatCompactTokenCount(meta.cacheWrite)}</span>`,
+      html`<span class="msg-meta__cache"
+        >${t("chat.messages.cacheWrite")}${formatCompactTokenCount(meta.cacheWrite)}</span
+      >`,
     );
   }
 
@@ -225,7 +229,9 @@ export function renderMessageMeta(timestamp: number, meta: GroupMeta | null) {
         : pct >= 75
           ? "msg-meta__ctx msg-meta__ctx--warn"
           : "msg-meta__ctx";
-    parts.push(html`<span class="${cls}">${pct}% ctx</span>`);
+    parts.push(
+      html`<span class="${cls}">${t("chat.messages.contextPercent", { pct: String(pct) })}</span>`,
+    );
   }
 
   // Model

@@ -81,7 +81,7 @@ export function renderConnection(props: ConnectionProps) {
               token: resolveGatewayTokenForUrlEdit(settings.gatewayUrl, v, settings.token),
             });
           }}
-          placeholder="ws://100.x.y.z:18789"
+          placeholder=${t("connection.access.wsUrlPlaceholder")}
         />
       `,
     })}
@@ -91,7 +91,7 @@ export function renderConnection(props: ConnectionProps) {
           ${renderSecretRow({
             label: t("connection.access.token"),
             value: props.settings.token,
-            placeholder: "OPENCLAW_GATEWAY_TOKEN",
+            placeholder: t("connection.access.tokenPlaceholder"),
             visible: props.showGatewayToken,
             showLabel: t("connection.access.showToken"),
             hideLabel: t("connection.access.hideToken"),

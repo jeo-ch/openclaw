@@ -517,10 +517,12 @@ export class OpenClawFilePreviewModal extends OpenClawLitElement {
             ${activeFile ? this.renderFile(activeFile) : this.renderEmpty()}
           </div>
           <footer class="foot">
-            <span class="foot-group"><span class="kbd">↑↓</span> ${t("filePreview.navigate")}</span>
+            <span class="foot-group"
+              ><span class="kbd">${t("common.key_arrows")}</span> ${t("filePreview.navigate")}</span
+            >
             <span class="spacer"></span>
             <button class="button" @click=${this.emitClose}>
-              ${t("common.close")} <span class="kbd">esc</span>
+              ${t("common.close")} <span class="kbd">${t("common.key_esc")}</span>
             </button>
           </footer>
         </div>
